@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import FloatingCard from "@/components/ui/FloatingCard";
 import MetricCard from "@/components/ui/MetricCard";
 
@@ -36,14 +37,18 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex gap-5">
-            <button className="rounded-xl bg-cyan-500 px-8 py-4 font-bold text-black transition hover:scale-105 hover:bg-cyan-400">
-              Start Free
-            </button>
+  <Link to="/register">
+    <button className="rounded-xl bg-cyan-500 px-8 py-4 font-bold text-black transition hover:scale-105 hover:bg-cyan-400">
+      Start Free
+    </button>
+  </Link>
 
-            <button className="rounded-xl border border-slate-700 px-8 py-4 transition hover:border-cyan-400 hover:bg-slate-900">
-              Watch Demo
-            </button>
-          </div>
+  <Link to="/login">
+    <button className="rounded-xl border border-slate-700 px-8 py-4 transition hover:border-cyan-400 hover:bg-slate-900">
+      Login
+    </button>
+  </Link>
+</div>
         </div>
 
         {/* RIGHT */}

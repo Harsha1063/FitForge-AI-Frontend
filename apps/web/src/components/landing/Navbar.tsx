@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-xl">
@@ -27,13 +29,17 @@ export default function Navbar() {
         </nav>
 
         <div className="flex gap-3">
-          <button className="rounded-lg px-5 py-2 text-slate-300 hover:text-white">
-            Login
-          </button>
+          <Link to="/login">
+            <button className="rounded-lg px-5 py-2 text-slate-300 hover:text-white">
+              Login
+            </button>
+          </Link>
 
-          <button className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:scale-105 hover:bg-cyan-400">
-            Get Started
-          </button>
+          <Link to="/register">
+            <button className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:scale-105 hover:bg-cyan-400">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
     </header>
