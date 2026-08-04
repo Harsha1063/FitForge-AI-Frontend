@@ -18,11 +18,11 @@ export default function Login() {
       setLoading(true);
 
       const res = await loginUser({
-        email,
-        password,
-      });
+  email,
+  password,
+});
 
-      login(res.data.accessToken, res.data.user);
+login(res.accessToken, res.user);
       toast.success("Welcome back!");
 
       navigate("/dashboard");
