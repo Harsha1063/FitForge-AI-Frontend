@@ -1,0 +1,40 @@
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { WorkoutsModule } from './workouts/workouts.module';
+import { ProgressModule } from './progress/progress.module';
+import { NutritionModule } from './nutrition/nutrition.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { AiModule } from './ai/ai.module';
+import { ReportModule } from './report/report.module';
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    MongooseModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_URI'),
+      }),
+    }),
+    UsersModule,
+    AuthModule,
+    WorkoutsModule,
+    ProgressModule,
+    NutritionModule,
+    DashboardModule,
+    AiModule,
+    ReportModule,
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
