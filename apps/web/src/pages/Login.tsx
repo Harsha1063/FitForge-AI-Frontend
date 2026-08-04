@@ -22,7 +22,7 @@ export default function Login() {
   password,
 });
 
-login(res.accessToken, res.user);
+login(res.user, res.accessToken);
       toast.success("Welcome back!");
 
       navigate("/dashboard");
