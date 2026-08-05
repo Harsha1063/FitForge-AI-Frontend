@@ -38,22 +38,22 @@ export default function WorkoutGenerator({
       setLoading(true);
 
       const result = await generateWorkout({
-        goal,
-        experience,
-        equipment,
-        daysPerWeek: days,
-      });
-onGenerated(result);
-      if (!result.success) {
-        toast.error(
-  result.message ??
-    "Unable to generate workout plan."
-);
-        return;
-      }
+  goal,
+  experience,
+  equipment,
+  daysPerWeek: days,
+});
 
-      onGenerated(result.data);
-      toast.success("Workout plan generated successfully!");
+if (!result.success) {
+  toast.error(
+    result.message ??
+      "Unable to generate workout plan."
+  );
+  return;
+}
+
+onGenerated(result);
+toast.success("Workout plan generated successfully!");
     } catch (err: any) {
       console.error(err);
 
